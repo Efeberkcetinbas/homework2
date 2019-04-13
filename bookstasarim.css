@@ -1,0 +1,73 @@
+body{
+    border: 0px;
+    margin: 0px;
+    background: url(bookswallpaper.jpg);
+    
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.gallery{ 
+    background-color: #ffe0ee;
+    height: 100%;
+    border: 10px;
+    margin: 5px;
+    
+}
+br{
+    border:10px;
+    margin: 10px;
+}
+.desc{
+    font-size: 16px;
+    color:cadetblue;
+}
+b{
+    color:red;
+    text-decoration: none;
+}
+b:hover{
+     font-weight: bold;
+color:blueviolet;
+font-style: oblique;
+font-family: Arial, Helvetica, sans-serif;
+text-decoration:none;
+vertical-align: baseline;
+}
+c{
+    color:cornflowerblue;
+    text-decoration: none;
+}
+c:hover{
+    font-weight: bold;
+color:blueviolet;
+font-style: oblique;
+font-family: Arial, Helvetica, sans-serif;
+text-decoration:none;
+vertical-align: baseline;
+}
+i{
+color: darkorange;
+}
+i:hover{
+    color: deeppink;
+}

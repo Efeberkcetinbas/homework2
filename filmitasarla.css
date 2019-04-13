@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+.card{
+    position: absolute;
+    top: 50%;
+    left:20%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 450px;
+    background: #fff;
+
+}
+.info{
+    width: 600px;
+    height: 300px;
+}
+.card .poster{
+    float: left;
+    position: relative;
+    overflow: visible;
+
+}
+.card .poster img{
+    width: 100%;
+
+}
+i{
+    color: darkmagenta;
+}
+i:hover{
+    color:deepskyblue;
+}
+h3{
+    color: aqua;
+}
+em{
+    color:fuchsia;
+}
+.video{
+    position: relative;
+    padding-bottom: 56.25%;
+  
+}
+.video iframe{
+
+    position: absolute; 
+    width: 50%;
+    height: 70%;
+}
+h4{
+    color: blue;
+}
+strong{
+    color: yellow;
+}
+h2{
+    color: yellow;
+}

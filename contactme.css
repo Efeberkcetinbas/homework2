@@ -1,0 +1,28 @@
+body{
+    background-image: url(lion.jpg);
+    background-size: cover;
+   
+}
+h2{
+    color:white;
+}
+h3{
+    color: white;
+}
+d{
+    color:cornsilk;
+    font-size: 20px;
+}
+d:hover{
+    color:aqua;
+text-decoration-line: none;
+}
+i{
+    color: yellow;
+}
+i:hover{
+    color:blue;
+}
+o{
+    color:aqua;
+}
