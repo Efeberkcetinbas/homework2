@@ -39,6 +39,7 @@ h3{
 em{
     color:fuchsia;
 }
+/*
 .video{
     position: relative;
     padding-bottom: 56.25%;
@@ -49,7 +50,7 @@ em{
     position: absolute; 
     width: 50%;
     height: 70%;
-}
+}*/
 h4{
     color: blue;
 }

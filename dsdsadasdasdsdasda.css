@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+}
+
+.col-12 col-md-8{
+width: %75; 
+    float: left;
+    padding: 15px;
+    border: 1px solid red;
+}
+.col-12 col-md-8{
+    width: %25;
+    float: left;
+    padding: 15px;
+    border: 1px solid red;
+}
+body{
+    background-image: url(m%C3%BCzik.jpg);
+    background-size: cover;
+}
+.container{
+    margin-top: 8%;
+}
+i{
+    color:greenyellow;
+}
+i:hover{
+    color:red;
+}
+h5{
+    color:aliceblue;
+    text-decoration: none;
+}
+b{
+    color: blueviolet;
+}
+b:hover{
+    color:cadetblue;
+}
+d:hover{
+    color:cyan;
+}
+.inner{
+    overflow: hidden;
+}
+.inner img{
+    transition: all 1.5s ease;
+}
+.inner:hover img{
+    transform: scale(1.5);
+}
+h2{
+    color:greenyellow;
+}
+.card-text{
+    color: greenyellow;
+}
+p{
+    color: aqua;
+}
+h5.card-text:hover{
+    color: aqua;
+}

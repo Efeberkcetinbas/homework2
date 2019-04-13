@@ -5,6 +5,7 @@ body{
 .container{
     margin-top: 8%;
 }
+.row{margin-bottom: 3rem}
 i{
     color:greenyellow;
 }
