@@ -18,7 +18,7 @@
     </style>
 
 <body>
-   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a href="index.html" class="navbar-brand"><i class="fas fa-home">HomePage</i></a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
@@ -54,80 +54,33 @@
 
     </nav>
     <br>
-<center>
-<form>
-    <table>
-    <tr>
-        <td> <o>
-            Name,Surname: </o>
-        </td>
-        <td>
-        <input type="text" name="" required>
-        </td>
-        </tr>
-<tr>
-      <td>
-          <o> E-mail: </o>
-    </td>  
-        <td>
-    <input type="mail" name="" required>
-    </td>
-        
-     </tr>
-        
-        <tr>
-        <td><o>
-            Telephone: </o>
-            </td>
-        <td>
-            <input type="tel" name="tel" class="form-control" placeholder="Max length is 11" maxlength="11" required>
-            </td>
-        </tr>
-        
-        
-        <tr>
-        <td>
-            <o> Issue: </o>
-            </td>
-            <td>
-                <textarea rows="1" cols="20" name="message-box"></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td><o>Message: </o></td>
-            <td>
-            <textarea rows="8" cols="30" name="message-box">
-                </textarea>
-            </td>
-        </tr>
-        <tr>
-        <td>
-        <button type="button" onclick="alert('Your Message is Sent!')">Send</button>   
-            </td>
-        
-        </tr>
-        
+<div class="container">  
+  <form id="contact">
     
-    
-    </table>
-    
-    
-    </form>   <br><br>
-    
-    <form>
-    <table>
-        <h2>OR</h2>
-        <br>
-        <h3>If you want to contact me, please click to the adress below : </h3>
-        <a href="mailto:berkefefast@gmail.com"><d>berkefefast@gmail.com"</d></a>
-        <br><br>
-        
-        
-        </table>
-    
-    
-    
-    </form>
+    <h4>Contact me for you</h4>
+    <fieldset>
+      <input placeholder="Name,Surname" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Phone Number(MaxLength=11)" maxlength="11" type="tel" tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Issue" type="text" tabindex="4" required>
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Send</button>
+    </fieldset>
+    <p class="contact">If you want to contact me, please click to the adres <a href="mailto:berkefefast@gmail.com" title="mail"><d>berkefefast@gmail.com"</d></a></p>
+       
+     <br> <br>
+      <div class="centerrules">
+          
     <a href="index.html">
     <img src="homepa.png" width="40" height="40">
     </a> <br> <br>
@@ -139,9 +92,21 @@
     </a> 
     <a href="https://mail.google.com/mail/u/0/">
     <img src="mail.png" width="40" height="40">
-    </a>
+          </a> 
+      </div>
 
-    </center>
+  </form>
+</div>
+      
+        <br><br>
+        
+        
+    
+    
+    
+    
+ 
+   
 
 
 
