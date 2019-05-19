@@ -56,12 +56,13 @@
     canvas {
         background: #eee;
     }
-
 </style>
     
 
-<canvas id="myCanvas" width="500" height="320"></canvas>
+
 <body>
+  <canvas id="myCanvas" width="500" height="320"></canvas>
+  <h2 id="demo"></h2>
     <script>
 var canvas=document.getElementById("myCanvas");
 var context=canvas.getContext("2d");
@@ -95,7 +96,6 @@ var ConstantTopBoyut=200;
 var ConstantLeftBoyut=140;    
 var ConstantHeight=10;
 var ConstantWidth=150;
-
         var ballcolor='#6495ED';
         var brickcolorred='#FF0000';
         var brickcolorblue='#0000FF';
@@ -111,7 +111,6 @@ var bricks=[];
 		   bricks[c][r]={ x:0, y:0, status: 1 };
         }
     }
-
 var brickss=[];
         for(a=0; a<brickColumnCountt; a++){
             brickss[a]=[];
@@ -189,17 +188,20 @@ var brickss=[];
             dy=-dy;
             b.status=0;
             if(c==0){
-            score+=20;
+              document.getElementById("demo").innerHTML ="Score: " + (score += 20);
+            //score+=20;
                  ballcolor=brickcolorred;
              
             }
              else if(c==1){
-                score+=40;
+              document.getElementById("demo").innerHTML ="Score: " + (score += 40);
+               // score+=40;
                  ballcolor=brickcolorblue;
             }
           
              else{
-                score+=80;
+              document.getElementById("demo").innerHTML ="Score: " + (score += 80);
+                //score+=80;
                   ballcolor=brickcolorgreen;
             }
           
@@ -227,11 +229,13 @@ var brickss=[];
                             dy=-dy;
                             deneme.status=0;
                             if(a==0){
-                                score+=60;
+                              document.getElementById("demo").innerHTML ="Score: " + (score += 60);
+                                //score+=60;
                                 ballcolor=brickcolorpurple;
                             }
                             else{
-                                score+=50;
+                              document.getElementById("demo").innerHTML ="Score: " + (score += 50);
+                                //score+=50;
                                 ballcolor=brickcoloryellow;
                             }
                         }
@@ -336,14 +340,13 @@ function draw(){
     drawBricks();
     drawBall();
     drawPaddle();
-    drawScore();
     drawLives();
     collisionDetection();
     drawBrickstry();
     collisionDetectiontry();
     drawConstantBrick();
     colConstantDet();
-  
+    document.getElementById("demo").innerHTML ="Score: " + score;  
     
     if(x+dx>canvas.width-Radius || x+dx < Radius){
         dx=-dx;
