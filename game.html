@@ -1,0 +1,391 @@
+<html>
+<head>
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a href="index.html" class="navbar-brand"><i class="fas fa-home">HomePage</i></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="films.html" class="nav-link "><i class="fas fa-film">Films</i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="books.html" class="nav-link"><i class="fas fa-book-reader">Books</i></a>
+                </li>
+                 <li class="nav-item">
+                    <a href="musics.html" class="nav-link"><i class="fas fa-headphones">Musics</i></a>
+                </li>
+                 <li class="nav-item">
+                    <a href="index.html" class="nav-link"><i class="fas fa-spider">Comic Book</i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="Usefulllinks.html" class="nav-link"><i class="fas fa-link">Usefull Links</i></a>
+                </li>
+                  <li class="nav-item active">
+                    <a href="Usefulllinks.html" class="nav-link"><i class="fas fa-link">Game</i></a>
+                </li>
+                 <li class="nav-item">
+                    <a href="Contact%20Me.html" class="nav-link"><i class="fas fa-id-card">Contact Me</i></a>
+                </li>
+                 <li class="nav-item">
+                    <a href="registration.html" class="nav-link"><i class="fas fa-registered">Registration</i></a>
+                </li>
+                
+                
+                 
+            </ul>
+        </div>
+
+    </nav>
+    </body>
+<style>
+    canvas {
+        background: #eee;
+    }
+
+</style>
+    
+
+<canvas id="myCanvas" width="500" height="320"></canvas>
+<body>
+    <script>
+var canvas=document.getElementById("myCanvas");
+var context=canvas.getContext("2d");
+var Radius=10;
+var x=canvas.width/2;
+var y=canvas.height-20;
+var dx=2;
+var dy=-2;
+var PaddleHeight=10;
+var PaddleWidth=75;
+var paddleX=(canvas.width-PaddleWidth)/2;    
+var rightPressed=false;
+var leftPressed=false;
+var brickRowCount=1;
+var brickColumnCount=3;
+var brickRowCountt=1;
+var brickColumnCountt=2;
+var brickWidth=75;
+var brickHeight=20;
+var brickPadding=20;
+var brickOffsetTop1=60;
+var brickOffsetLeft1=90;
+var brickOffsetTopp=120;
+var brickOffsetLeftt=140;
+var score=0;
+var lives=1;
+        
+var ConstantDikey=1;
+var ConstantYatay=1;
+var ConstantTopBoyut=200;
+var ConstantLeftBoyut=140;    
+var ConstantHeight=10;
+var ConstantWidth=150;
+
+        var ballcolor='#6495ED';
+        var brickcolorred='#FF0000';
+        var brickcolorblue='#0000FF';
+        var brickcolorgreen='#008000';
+        var brickcolorpurple='#800080';
+        var brickcoloryellow='#FFFF00';    
+        
+var bricks=[];
+    
+    for(c=0; c<brickColumnCount; c++){
+        bricks[c]=[];
+           for(r=0; r<brickRowCount; r++){
+		   bricks[c][r]={ x:0, y:0, status: 1 };
+        }
+    }
+
+var brickss=[];
+        for(a=0; a<brickColumnCountt; a++){
+            brickss[a]=[];
+            for(b=0; b<brickRowCountt; b++){
+                brickss[a][b]={ x:0, y:0, status:1 };
+            }
+        }
+        
+        var brikovic=[];
+        
+        for(k=0; k<ConstantDikey; k++){
+            brikovic[k]=[];
+            
+            for(l=0; l<ConstantYatay; l++){
+                brikovic[k][l]={ x:0, y:0, status:1 };
+            }
+        
+        
+        }
+    
+    
+   document.addEventListener("keydown", keyDownHandler,false);
+    document.addEventListener("keyup", keyUpHandler,false);
+    document.addEventListener("mousemove", mouseMoveHandler,false);
+    
+    
+    function keyDownHandler(e){
+        if(e.keyCode==39){
+            rightPressed=true;
+        }
+        else if(e.keyCode==37){
+            leftPressed=true;
+        }
+    }
+    
+     function keyUpHandler(e){
+         if(e.keyCode==39){
+             rightPressed=false;
+         }
+         else if(e.keyCode==37){
+             leftPressed=false
+         }
+     }
+     
+      function mouseMoveHandler(e){
+        var relativeX=e.clientX-canvas.offsetLeft;
+          if(relativeX>0 && relativeX<canvas.width){
+              paddleX=relativeX-PaddleWidth/2;
+          }
+      }
+         
+        
+        function colConstantDet(){
+       for(k=0; k<ConstantDikey; k++){
+           for(l=0; l<ConstantYatay; l++){
+               var sabit=brikovic[k][l];
+               if(sabit.status==1){
+                   if(x>sabit.x && x<sabit.x+ConstantWidth && y>sabit.y && y<sabit.y+ConstantHeight){
+                       dy=-dy;
+                       sabit.status=1;
+                      
+                   }
+               }
+           }
+       }
+   }
+   
+    
+    function collisionDetection(){
+        for(c=0; c<brickColumnCount; c++){
+            for(r=0; r<brickRowCount; r++){
+                var b=bricks[c][r];
+               if(b.status==1){
+        if(x>b.x && x<b.x+brickWidth && y>b.y && y<b.y+brickHeight){
+            dy=-dy;
+            b.status=0;
+            if(c==0){
+            score+=20;
+                 ballcolor=brickcolorred;
+             
+            }
+             else if(c==1){
+                score+=40;
+                 ballcolor=brickcolorblue;
+            }
+          
+             else{
+                score+=80;
+                  ballcolor=brickcolorgreen;
+            }
+          
+            if(score==250){ 
+                
+                   alert('Congratulations !!'); 
+                document.location.reload();
+            }
+        }
+    }
+            }
+        }
+    }
+         if(score==250){ 
+                
+                   alert('Congratulations !!'); 
+                document.location.reload();
+            }
+        function collisionDetectiontry(){
+            for(a=0; a<brickColumnCountt; a++){
+                for(b=0; b<brickRowCountt; b++){
+                    var deneme=brickss[a][b];
+                    if(deneme.status==1){
+                        if(x>deneme.x && x<deneme.x+brickWidth && y>deneme.y && y<deneme.y+brickHeight){
+                            dy=-dy;
+                            deneme.status=0;
+                            if(a==0){
+                                score+=60;
+                                ballcolor=brickcolorpurple;
+                            }
+                            else{
+                                score+=50;
+                                ballcolor=brickcoloryellow;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+    function drawBall(){
+        context.beginPath();
+        context.arc(x,y,Radius,0,Math.PI*2);
+        context.fillStyle=ballcolor;
+        context.fill();
+        context.closePath();
+    }
+    
+    function drawPaddle(){
+        context.beginPath();
+        context.rect(paddleX,canvas.height-PaddleHeight,PaddleWidth,PaddleHeight);
+        context.fillStyle="#0095DD";
+        context.fill();
+        context.closePath();
+    }
+    
+      
+   function drawBricks(){
+  for(c=0;c<brickColumnCount;++c){
+    for(r=0;r<brickRowCount;++r){
+       if(bricks[c][r].status==1){
+         var brickX=(c*(brickWidth+brickPadding))+brickOffsetLeft1;
+         var brickY=(r*(brickHeight+brickPadding))+brickOffsetTop1;
+        bricks[c][r].x=brickX;
+         bricks[c][r].y=brickY;
+         context.beginPath();
+         context.rect(brickX,brickY,brickWidth,brickHeight);
+         if(c==1){
+           context.fillStyle="#0000FF"; }
+             else if(c==0){
+           context.fillStyle="#FF0000";
+             }
+           else
+               context.fillStyle="#2E8B57";
+               context.fill();
+         context.closePath();
+      }
+    }
+  }
+}
+        function drawBrickstry(){
+            for(a=0; a<brickColumnCountt; ++a){
+                for(b=0; b<brickRowCountt; ++b){
+                    if(brickss[a][b].status==1){
+                        var brickA=(a*(brickWidth+brickPadding))+brickOffsetLeftt;
+                        var brickB=(b*(brickHeight+brickPadding))+brickOffsetTopp;
+                    brickss[a][b].x=brickA;
+                        brickss[a][b].y=brickB;
+                        context.beginPath();
+                        context.rect(brickA,brickB,brickWidth,brickHeight);
+                        if(a==1){
+                            context.fillStyle="#FFFF00";
+                        }
+                        else 
+                            context.fillStyle="#800080";
+                            context.fill();
+                        context.closePath();
+                        }
+                    }
+                }
+            }
+        function drawConstantBrick(){
+            for(k=0; k<ConstantDikey; ++k){
+                for(l=0; l<ConstantYatay; ++l){
+                    if(brikovic[k][l].status==1){
+                        var brickK=(k*(ConstantWidth))+ConstantLeftBoyut;
+                        var brickL=(l*(ConstantHeight))+ConstantTopBoyut;
+                        
+                        brikovic[k][l].x=brickK;
+                        brikovic[k][l].y=brickL;
+                        context.beginPath();
+                        context.rect(brickK,brickL,ConstantWidth,ConstantHeight);
+                        context.fillStyle="	#000000";
+                        context.fill();
+                        context.closePath();
+                    }
+                }
+            }
+        }        
+    
+function drawScore(){
+    context.font="24px Arial";
+    context.fillStyle="	#000000";
+    context.fillText("Score: " +score,8,300);
+} 
+    
+function drawLives(){
+    context.font="16px Arial";
+    context.fillStyle="0095DD";
+    context.fillText("Lives: "+ lives,8,20);
+}
+function draw(){
+    context.clearRect(0,0,canvas.width,canvas.height);
+    drawBricks();
+    drawBall();
+    drawPaddle();
+    drawScore();
+    drawLives();
+    collisionDetection();
+    drawBrickstry();
+    collisionDetectiontry();
+    drawConstantBrick();
+    colConstantDet();
+  
+    
+    if(x+dx>canvas.width-Radius || x+dx < Radius){
+        dx=-dx;
+        
+    }
+    
+    if(y+dy < Radius){
+        dy=-dy;
+    }
+    else if(y+dy > canvas.height-Radius){
+        if(x>paddleX && x<paddleX+PaddleWidth){
+            dy=-dy;
+        }
+        else{
+            lives--;
+            if(!lives){
+                alert("GAME OVER. YOU'RE IN THE ENDGAME NOW...");
+				document.location.reload();
+            }
+            else{
+                x=canvas.width/2;
+                y=canvas.height-30;
+                dx= 3;
+                dy= -3;
+                paddleX=(canvas.width-PaddleWidth)/2;
+            }
+        }
+    }
+   
+    
+    if(rightPressed && paddleX<canvas.width-PaddleWidth){
+        paddleX +=7;
+    }
+    else if(leftPressed && paddleX > 0 ){
+        paddleX -= 7;
+    }
+    
+    x += dx;
+    y += dy;
+    requestAnimationFrame(draw);
+}
+    draw();
+      </script>
+</body>
+</html>
